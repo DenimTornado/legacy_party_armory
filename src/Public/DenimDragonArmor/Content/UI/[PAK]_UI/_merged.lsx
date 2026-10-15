@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Height" type="int32" value="64" />
+					<attribute id="ID" type="FixedString" value="2fbdcf6a-0907-4991-bd4d-b7520cb10a0a" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="DenimDragonArmor" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="SourceFile" type="LSString" value="Public/DenimDragonArmor/Assets/Textures/Icons/DenimDragonArmor.dds" />
+					<attribute id="Streaming" type="bool" value="False" />
+					<attribute id="Template" type="FixedString" value="Icons_Items" />
+					<attribute id="Type" type="int32" value="1" />
+					<attribute id="Width" type="int32" value="64" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115200960757765" />
+				</node>
+				<node id="Resource">
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Height" type="int32" value="64" />
+					<attribute id="ID" type="FixedString" value="9547839c-67ec-4b55-b7fb-0a85a44cf9c9" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="DenimDragonArmor_Helmet" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="SourceFile" type="LSString" value="Public/DenimDragonArmor/Assets/Textures/Icons/DenimDragonArmor_Helmet.dds" />
+					<attribute id="Streaming" type="bool" value="False" />
+					<attribute id="Template" type="FixedString" value="Icons_Items" />
+					<attribute id="Type" type="int32" value="1" />
+					<attribute id="Width" type="int32" value="64" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115200960757765" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

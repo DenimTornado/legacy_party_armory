@@ -1,0 +1,64 @@
+param(
+    [ValidateSet('preview','final')][string]$Mode = 'preview',
+    [string]$Divine = $env:BG3_DIVINE
+)
+$ErrorActionPreference = 'Stop'
+$projectRoot = [IO.Path]::GetFullPath($PSScriptRoot)
+if (-not $Divine) {
+    $candidates = @(
+        (Join-Path $projectRoot 'tools/Divine.exe'),
+        (Join-Path (Split-Path $projectRoot) 'tools/ExportTool/Packed/Tools/Divine.exe')
+    )
+    $Divine = $candidates | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
+}
+if (-not $Divine -or -not (Test-Path -LiteralPath $Divine)) {
+    throw 'Provide LSLib Divine.exe: ./Build.ps1 -Divine C:/Tools/ExportTool/Tools/Divine.exe'
+}
+$Divine = (Resolve-Path -LiteralPath $Divine).Path
+$stageRoot = Join-Path $projectRoot ('build/' + $Mode + '-' + [guid]::NewGuid().ToString('N'))
+$null = New-Item -ItemType Directory -Path $stageRoot -Force
+$sourceRoot = Join-Path $projectRoot 'src'
+Get-ChildItem -LiteralPath $sourceRoot | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination $stageRoot -Recurse
+}
+function Assert-StagePath([string]$Path) {
+    $full = [IO.Path]::GetFullPath($Path)
+    $prefix = [IO.Path]::GetFullPath($stageRoot) + [IO.Path]::DirectorySeparatorChar
+    if (-not $full.StartsWith($prefix, [StringComparison]::OrdinalIgnoreCase)) {
+        throw "Build path escapes staging directory: $Path"
+    }
+}
+function Invoke-Divine([string[]]$Arguments) {
+    & $Divine @Arguments
+    if ($LASTEXITCODE -ne 0) { throw "Divine failed ($LASTEXITCODE): $Arguments" }
+}
+$resourceFiles = Get-Content -Raw -LiteralPath (Join-Path $projectRoot 'config/resource-files.json') | ConvertFrom-Json
+foreach ($relative in $resourceFiles) {
+    $inputFile = Join-Path $stageRoot $relative
+    Assert-StagePath $inputFile
+    $outputFile = [IO.Path]::ChangeExtension($inputFile, '.lsf')
+    Invoke-Divine @('-g','bg3','-a','convert-resource','-s',$inputFile,'-d',$outputFile)
+    if (-not (Test-Path -LiteralPath $outputFile)) { throw "No compiled resource: $outputFile" }
+    Remove-Item -LiteralPath $inputFile
+}
+foreach ($inputFile in Get-ChildItem -LiteralPath (Join-Path $stageRoot 'Localization') -Recurse -Filter '*.xml' -File) {
+    Assert-StagePath $inputFile.FullName
+    $outputFile = [IO.Path]::ChangeExtension($inputFile.FullName, '.loca')
+    Invoke-Divine @('-g','bg3','-a','convert-loca','-s',$inputFile.FullName,'-d',$outputFile)
+    if (-not (Test-Path -LiteralPath $outputFile)) { throw "No compiled localization: $outputFile" }
+    Remove-Item -LiteralPath $inputFile.FullName
+}
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+$data = [IO.File]::ReadAllText((Join-Path $projectRoot "config/$Mode.json"))
+$null = $data | ConvertFrom-Json
+$luaRoot = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua'
+[IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.json'), $data, $utf8)
+[IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.lua'), ('return Ext.Json.Parse([==[' + $data + ']==])' + "`n"), $utf8)
+$metaPath = Join-Path $stageRoot 'Mods/DenimDragonArmor/meta.lsx'
+$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.1 preview', '0.3.1 ' + $Mode)
+[IO.File]::WriteAllText($metaPath, $meta, $utf8)
+$outputRoot = Join-Path $projectRoot 'dist'
+$null = New-Item -ItemType Directory -Path $outputRoot -Force
+$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.1_' + $Mode.ToUpperInvariant() + '.pak')
+Invoke-Divine @('-g','bg3','-a','create-package','-s',$stageRoot,'-d',$pak,'-c','lz4','--package-priority','30')
+Write-Host "Built $pak"

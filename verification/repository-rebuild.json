@@ -1,0 +1,26 @@
+{
+  "preview": {
+    "files": 40,
+    "semantic_equivalence": true,
+    "encoding_only_differences": [
+      "Mods\\DenimDragonArmor\\ScriptExtender\\Lua\\ArmoryData.lua",
+      "Public\\DenimDragonArmor\\RootTemplates\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\Assets\\[PAK]_LegacyPartyArmory\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\Assets\\Characters\\[PAK]_DragonHelmet\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\Assets\\Characters\\[PAK]_DragonPreset\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\UI\\[PAK]_UI\\_merged.lsf"
+    ]
+  },
+  "final": {
+    "files": 40,
+    "semantic_equivalence": true,
+    "encoding_only_differences": [
+      "Mods\\DenimDragonArmor\\ScriptExtender\\Lua\\ArmoryData.lua",
+      "Public\\DenimDragonArmor\\RootTemplates\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\Assets\\[PAK]_LegacyPartyArmory\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\Assets\\Characters\\[PAK]_DragonHelmet\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\Assets\\Characters\\[PAK]_DragonPreset\\_merged.lsf",
+      "Public\\DenimDragonArmor\\Content\\UI\\[PAK]_UI\\_merged.lsf"
+    ]
+  }
+}

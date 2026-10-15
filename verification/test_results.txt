@@ -1,0 +1,5 @@
+PASS Lua preview: 42 objects; exact nesting, manual-only, repeat, combat, overlap, rollback, stale callbacks
+PASS files preview: 53 definitions, 25 private/stable roots, EN/RU handles, Rage-compatible selectors, no vanilla stats replacement
+PASS Lua final: 29 objects; exact nesting, manual-only, repeat, combat, overlap, rollback, stale callbacks
+PASS files final: 53 definitions, 25 private/stable roots, EN/RU handles, Rage-compatible selectors, no vanilla stats replacement
+PASS preview/final content separation

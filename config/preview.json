@@ -1,0 +1,100 @@
+{
+  "mode": "preview",
+  "bags": {
+    "outer": {
+      "uuid": "bbe14df0-3495-53b1-a2b9-1660d0e48eea",
+      "children": [
+        "paladin",
+        "wyll",
+        "karlach",
+        "minthara",
+        "jaheira",
+        "shadowheart"
+      ],
+      "items": []
+    },
+    "paladin": {
+      "uuid": "3dc1396c-f093-5b9b-9650-c1671ddb6971",
+      "children": [],
+      "items": [
+        "a22abf50-a0a1-47ad-9bd0-5866e72d9d95",
+        "b44e7251-75b9-46bf-9b67-79551ae6d603",
+        "77124822-32d2-56cd-a2f5-fb792a6a0991"
+      ]
+    },
+    "wyll": {
+      "uuid": "a3e2b939-614c-5139-9eff-3a9786ff710a",
+      "children": [],
+      "items": [
+        "06466f65-ffe9-5d05-bc0d-357031742c30",
+        "62d123ba-6635-544c-a2c2-e2d30ae3dd29",
+        "1f4faeb8-fade-5d5f-8f40-acafaee41de7",
+        "3ce4d5d2-3ed0-470e-8cea-bdac81a60583",
+        "f67b0733-ad73-4d1b-94fd-e3e0236623ca",
+        "257aed3e-370d-40b3-b464-de10257dd82b",
+        "bb108620-186f-4a00-b7de-af9329d5497b",
+        "02bb51c0-00e5-408c-8e11-8de7b9580c04"
+      ]
+    },
+    "karlach": {
+      "uuid": "ba49b882-682e-5d4f-a59b-bef7e9807d35",
+      "children": [],
+      "items": [
+        "1c0f33c4-86d0-5a5e-941f-4d8db521cdcf",
+        "7ab6c22f-6151-575d-9b92-db618672ea1b",
+        "7cca51a5-bfa6-4c65-b2d9-ef0167762a19",
+        "8a31c554-1545-4647-b24d-93cf5d81df18",
+        "1d0d3883-6196-4ccd-8a49-8e4fb84f6c6b"
+      ]
+    },
+    "minthara": {
+      "uuid": "0cf625ee-3c50-5c8b-bdac-6590bb4bc112",
+      "children": [],
+      "items": [
+        "66403a1f-6450-5a91-a2d9-9d23f5fdb555",
+        "92b759b8-117c-5056-b181-43c26b234fa1",
+        "8ed92d35-159c-493c-a8da-fba455f181e4",
+        "94ef7170-1c1d-489a-9c18-55209d864e3a",
+        "a13f6fad-bca8-40c0-b5b1-592832c73050",
+        "ad60be55-7a95-4dcb-ae55-908a97f9955a"
+      ]
+    },
+    "jaheira": {
+      "uuid": "dc2252a0-ab85-5685-933d-8f7a682cbea3",
+      "children": [],
+      "items": [
+        "b429ba93-74a8-576c-a3b6-175b16b0f748",
+        "d60524f4-583e-4b16-91b2-871221d441cf",
+        "b9656931-da39-4024-92a2-f45264593b14"
+      ]
+    },
+    "shadowheart": {
+      "uuid": "786e1c5e-485c-5076-9856-bde92a985614",
+      "children": [
+        "shar",
+        "selune"
+      ],
+      "items": []
+    },
+    "shar": {
+      "uuid": "4a5636ba-19bf-5359-96f2-473efc5aa880",
+      "children": [],
+      "items": [
+        "8d4b2e5c-3ecd-541c-a26a-ee934b4fbf18",
+        "2cdc4e25-fea0-55fd-b430-e133558addf2",
+        "0d3fe975-6c2d-5083-b7fd-73b3a77269d3",
+        "3523b640-e9da-4d89-b031-6ffe1d5fd3ed",
+        "ffdb4490-cbaf-4eac-97f8-893564d7ead9",
+        "02bb51c0-00e5-408c-8e11-8de7b9580c04"
+      ]
+    },
+    "selune": {
+      "uuid": "955f8319-7766-5131-b0f4-44f2a4df2219",
+      "children": [],
+      "items": [
+        "d529b911-86f1-5c28-9d7a-00c7940d5363",
+        "58415247-5793-5750-8ffc-7ce513c6c321"
+      ]
+    }
+  }
+}

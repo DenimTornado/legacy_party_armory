@@ -1,0 +1,10 @@
+build/
+dist/
+__pycache__/
+*.py[cod]
+.venv/
+*.pak
+*.zip
+*.log
+.env
+.env.*

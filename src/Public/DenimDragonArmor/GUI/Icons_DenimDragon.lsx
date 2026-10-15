@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+  <version major="4" minor="0" revision="9" build="310" />
+  <region id="TextureAtlasInfo">
+    <node id="root">
+      <children>
+        <node id="TextureAtlasIconSize">
+          <attribute id="Height" type="int32" value="64" />
+          <attribute id="Width" type="int32" value="64" />
+        </node>
+        <node id="TextureAtlasPath">
+          <attribute id="Path" type="string" value="Assets/Textures/Icons/DenimDragonArmor.dds" />
+          <attribute id="UUID" type="FixedString" value="2fbdcf6a-0907-4991-bd4d-b7520cb10a0a" />
+        </node>
+        <node id="TextureAtlasTextureSize">
+          <attribute id="Height" type="int32" value="64" />
+          <attribute id="Width" type="int32" value="64" />
+        </node>
+      </children>
+    </node>
+  </region>
+  <region id="IconUVList">
+    <node id="root">
+      <children>
+        <node id="IconUV">
+          <attribute id="MapKey" type="FixedString" value="Item_Denim_RedDragon_Armor" />
+          <attribute id="U1" type="float" value="0.0078125" />
+          <attribute id="U2" type="float" value="0.9921875" />
+          <attribute id="V1" type="float" value="0.0078125" />
+          <attribute id="V2" type="float" value="0.9921875" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>
