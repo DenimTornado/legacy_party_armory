@@ -60,8 +60,7 @@
     "shadowheart": {
       "uuid": "786e1c5e-485c-5076-9856-bde92a985614",
       "children": [
-        "shar",
-        "selune"
+        "shar"
       ],
       "items": []
     },
@@ -73,14 +72,6 @@
         "2cdc4e25-fea0-55fd-b430-e133558addf2",
         "0d3fe975-6c2d-5083-b7fd-73b3a77269d3",
         "ffdb4490-cbaf-4eac-97f8-893564d7ead9"
-      ]
-    },
-    "selune": {
-      "uuid": "955f8319-7766-5131-b0f4-44f2a4df2219",
-      "children": [],
-      "items": [
-        "d529b911-86f1-5c28-9d7a-00c7940d5363",
-        "58415247-5793-5750-8ffc-7ce513c6c321"
       ]
     }
   }

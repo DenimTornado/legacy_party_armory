@@ -21,6 +21,10 @@ $sourceRoot = Join-Path $projectRoot 'src'
 Get-ChildItem -LiteralPath $sourceRoot | ForEach-Object {
     Copy-Item -LiteralPath $_.FullName -Destination $stageRoot -Recurse
 }
+
+# 0.3.2 is applied to the immutable 0.3.1 source snapshot in staging.
+& (Join-Path $projectRoot 'Apply-032.ps1') -StageRoot $stageRoot -Mode $Mode
+
 function Assert-StagePath([string]$Path) {
     $full = [IO.Path]::GetFullPath($Path)
     $prefix = [IO.Path]::GetFullPath($stageRoot) + [IO.Path]::DirectorySeparatorChar
@@ -54,11 +58,8 @@ $null = $data | ConvertFrom-Json
 $luaRoot = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua'
 [IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.json'), $data, $utf8)
 [IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.lua'), ('return Ext.Json.Parse([==[' + $data + ']==])' + "`n"), $utf8)
-$metaPath = Join-Path $stageRoot 'Mods/DenimDragonArmor/meta.lsx'
-$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.1 preview', '0.3.1 ' + $Mode)
-[IO.File]::WriteAllText($metaPath, $meta, $utf8)
 $outputRoot = Join-Path $projectRoot 'dist'
 $null = New-Item -ItemType Directory -Path $outputRoot -Force
-$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.1_' + $Mode.ToUpperInvariant() + '.pak')
+$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.2_' + $Mode.ToUpperInvariant() + '.pak')
 Invoke-Divine @('-g','bg3','-a','create-package','-s',$stageRoot,'-d',$pak,'-c','lz4','--package-priority','30')
 Write-Host "Built $pak"

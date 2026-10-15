@@ -42,6 +42,9 @@
       "items": [
         "1c0f33c4-86d0-5a5e-941f-4d8db521cdcf",
         "7ab6c22f-6151-575d-9b92-db618672ea1b",
+        "aef31c6f-07a7-5b20-9007-e910ca009ea1",
+        "6211fd61-a504-5639-8281-fb67da2c4a84",
+        "fe127a4f-e1d5-533b-a2aa-52f6ce7befaf",
         "7cca51a5-bfa6-4c65-b2d9-ef0167762a19",
         "8a31c554-1545-4647-b24d-93cf5d81df18",
         "1d0d3883-6196-4ccd-8a49-8e4fb84f6c6b"
@@ -53,6 +56,7 @@
       "items": [
         "66403a1f-6450-5a91-a2d9-9d23f5fdb555",
         "92b759b8-117c-5056-b181-43c26b234fa1",
+        "33bcf8bc-50ff-507b-aadf-53de85fb396d",
         "8ed92d35-159c-493c-a8da-fba455f181e4",
         "94ef7170-1c1d-489a-9c18-55209d864e3a",
         "a13f6fad-bca8-40c0-b5b1-592832c73050",
@@ -71,8 +75,7 @@
     "shadowheart": {
       "uuid": "786e1c5e-485c-5076-9856-bde92a985614",
       "children": [
-        "shar",
-        "selune"
+        "shar"
       ],
       "items": []
     },
@@ -86,14 +89,6 @@
         "3523b640-e9da-4d89-b031-6ffe1d5fd3ed",
         "ffdb4490-cbaf-4eac-97f8-893564d7ead9",
         "02bb51c0-00e5-408c-8e11-8de7b9580c04"
-      ]
-    },
-    "selune": {
-      "uuid": "955f8319-7766-5131-b0f4-44f2a4df2219",
-      "children": [],
-      "items": [
-        "d529b911-86f1-5c28-9d7a-00c7940d5363",
-        "58415247-5793-5750-8ffc-7ce513c6c321"
       ]
     }
   }
