@@ -23,12 +23,12 @@ class SourceSnapshot(unittest.TestCase):
         cls.templates = {n.find('attribute[@id="MapKey"]').get('value'): n for n in template.findall('.//node[@id="GameObjects"]')}
 
     def test_bag_structure_and_counts(self):
-        for mode, count in [('preview', 42), ('final', 29)]:
+        for mode, count in [('preview', 43), ('final', 26)]:
             bags = self.configs[mode]['bags']
-            self.assertEqual(9, len(bags))
+            self.assertEqual(8, len(bags))
             self.assertEqual(count, sum(1 + len(v['items']) for v in bags.values()))
             self.assertEqual(['paladin', 'wyll', 'karlach', 'minthara', 'jaheira', 'shadowheart'], bags['outer']['children'])
-            self.assertEqual(['shar', 'selune'], bags['shadowheart']['children'])
+            self.assertEqual(['shar'], bags['shadowheart']['children'])
             for bag in bags.values():
                 self.assertIn(bag['uuid'], self.templates)
                 self.assertTrue(all(child in bags for child in bag['children']))
@@ -84,6 +84,9 @@ class SourceSnapshot(unittest.TestCase):
         self.assertIn('function API.Give(character)', lua)
         self.assertIn('Shout_LPA_Armory', lua)
         self.assertIn('pcall(Osi.IsInInventoryOf,uuid,parent)', lua)
+        self.assertIn('pcall(Osi.TemplateAddTo,entry.template,parent,1,0)', lua)
+        self.assertNotIn('Osi.CreateAt', lua)
+        self.assertNotIn('Osi.ToInventory', lua)
         self.assertNotIn('DeliveredReleaseItems', lua)
         self.assertFalse(list(SRC.glob('Mods/*/Story/**/*')))
 

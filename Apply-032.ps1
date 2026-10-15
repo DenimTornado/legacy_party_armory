@@ -13,7 +13,7 @@ function Save-XmlUtf8([xml]$Doc, [string]$Path) {
     $settings.NewLineChars = "`n"
     $settings.NewLineHandling = [System.Xml.NewLineHandling]::Replace
     $writer = [System.Xml.XmlWriter]::Create($Path, $settings)
-    try { $Doc.Save($writer) } finally { $writer.Dispose() }
+    try { $Doc.PSBase.Save($writer) } finally { $writer.Dispose() }
 }
 
 function Add-AttributeNode([xml]$Doc, $Node, [string]$Id, [string]$Type, [string]$Value) {
@@ -194,7 +194,10 @@ function Add-LpaRoot(
 Add-LpaRoot $roots $templateChildren 'aef31c6f-07a7-5b20-9007-e910ca009ea1' 'LPA_AshenHeartguard_Unwanted' '5ff8df3a-6924-4eb4-9d1a-9e87bd644bf7' 'LPA_AshenHeartguard_Unwanted' 'he9f3a87eg4696g51ecg8485gf508c98a1c3a' 'hd076927dg307fg59f8ga930g518610238004' ''
 Add-LpaRoot $roots $templateChildren '6211fd61-a504-5639-8281-fb67da2c4a84' 'LPA_AshenHeartguard_Bloodguzzler' '5fc2fcce-810d-47d2-824c-f6acf7b81a22' 'LPA_AshenHeartguard_Bloodguzzler' 'h165ff7b7g322eg5399gb32bg586027fc365b' 'hd076927dg307fg59f8ga930g518610238004' ''
 Add-LpaRoot $roots $templateChildren 'fe127a4f-e1d5-533b-a2aa-52f6ce7befaf' 'LPA_AshenHeartguard_Mighty' '48215bcb-b4a2-48cb-bfbe-8b601e678032' 'LPA_AshenHeartguard_Mighty' 'hcc84eecegdbdeg5af8g84fega758e3b1ad8b' 'hd076927dg307fg59f8ga930g518610238004' ''
-Add-LpaRoot $roots $templateChildren '33bcf8bc-50ff-507b-aadf-53de85fb396d' 'LPA_OrinVanity' '0629b687-0f66-4555-9612-0a787e14545c' 'LPA_OrinVanity' 'h1723710agf0b1g5d30g9999g1c82cdb8da92' 'h2edb7642gdcdfg5878g83f3g0d592dca6a6b' 'VanityBody'
+# Equipment.Slot describes the model attachment, not Stats.Slot. Camp clothing
+# still uses Body. Inherit the complete native Equipment block (including race
+# visuals) instead of replacing it with a slot-only block.
+Add-LpaRoot $roots $templateChildren '33bcf8bc-50ff-507b-aadf-53de85fb396d' 'LPA_OrinVanity' '0629b687-0f66-4555-9612-0a787e14545c' 'LPA_OrinVanity' 'h1723710agf0b1g5d30g9999g1c82cdb8da92' 'h2edb7642gdcdfg5878g83f3g0d592dca6a6b' ''
 Save-XmlUtf8 $roots $rootsPath
 
 $assetsPath = Join-Path $StageRoot 'Public/DenimDragonArmor/Content/Assets/[PAK]_LegacyPartyArmory/_merged.lsx'
