@@ -4,9 +4,24 @@ LegacyPartyArmory = LegacyPartyArmory or {}
 local API = LegacyPartyArmory
 API.Mode = data.mode
 local action = "Shout_LPA_Armory"
-API.Version = "0.3.3"
+API.Version = "0.3.11"
 local generation, busy, pending = 0, false, nil
 local logLines = {}
+
+-- Apply actual BG3 dye state to selected custom items after their instance exists.
+-- Values are dye ROOT TEMPLATE UUIDs, not MaterialPreset UUIDs.
+local initialDyes = {
+    -- Wyll: Black and Azure
+    ["def74bcd-48a7-55c2-99d6-9b72e66c2fe0"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Leather Armour +2 custom copy
+    ["334a92c4-f2b6-5dd8-9eb5-6606b424253e"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Deadeye of the Frontiers
+
+    -- Minthara: White and Black (reads almost-black on Orin's dress)
+    ["33bcf8bc-50ff-507b-aadf-53de85fb396d"] = "ffdb4490-cbaf-4eac-97f8-893564d7ead9",
+
+    -- Karlach: Black and Azure / cold charcoal-blue contrast
+    ["aef31c6f-07a7-5b20-9007-e910ca009ea1"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04"
+}
+
 local function valid(uuid)
     return type(uuid) == "string" and uuid ~= "" and uuid ~= "00000000-0000-0000-0000-000000000000"
 end
@@ -19,6 +34,39 @@ local function log(msg)
 end
 local function guid(value)
     return type(value) == "string" and value:sub(-36):lower() or ""
+end
+
+local function applyInitialDye(instanceUuid, templateUuid)
+    local dyeTemplateUuid = initialDyes[guid(templateUuid)]
+    if not dyeTemplateUuid then return true end
+
+    local ok, err = pcall(function()
+        local itemEntity = Ext.Entity.Get(instanceUuid)
+        if not itemEntity then error("item entity is not ready") end
+
+        if not itemEntity.ItemDye then
+            itemEntity:CreateComponent("ItemDye")
+        end
+
+        local dyeTemplate = Ext.Template.GetTemplate(dyeTemplateUuid)
+        if not dyeTemplate or not valid(dyeTemplate.ColorPreset) then
+            error("dye template has no ColorPreset: " .. tostring(dyeTemplateUuid))
+        end
+
+        local materialPreset = Ext.Resource.Get(dyeTemplate.ColorPreset, "MaterialPreset")
+        if not materialPreset or not valid(materialPreset.Guid) then
+            error("MaterialPreset not found for dye: " .. tostring(dyeTemplateUuid))
+        end
+
+        itemEntity.ItemDye.Color = materialPreset.Guid
+        itemEntity:Replicate("ItemDye")
+        log("Dyed " .. tostring(templateUuid) .. " as " .. tostring(instanceUuid) .. " with " .. tostring(dyeTemplateUuid))
+    end)
+
+    if not ok then
+        log("Initial dye failed for " .. tostring(templateUuid) .. ": " .. tostring(err))
+    end
+    return ok
 end
 
 -- Native inventory creation reports the actual instance UUID here. Register
@@ -77,7 +125,11 @@ function API.Give(character)
             if uuid and Ext.Entity.Get(uuid) then
                 local checked,inside=pcall(Osi.IsInInventoryOf,uuid,parent)
                 if checked and (inside==true or inside==1) then
-                    if entry.bag then bags[entry.bag]=uuid end
+                    if entry.bag then
+                        bags[entry.bag]=uuid
+                    else
+                        applyInitialDye(uuid, entry.template)
+                    end
                     pending=nil
                     index=index+1
                     Ext.Timer.WaitFor(100,step)
