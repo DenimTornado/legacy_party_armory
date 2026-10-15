@@ -4,7 +4,7 @@ LegacyPartyArmory = LegacyPartyArmory or {}
 local API = LegacyPartyArmory
 API.Mode = data.mode
 local action = "Shout_LPA_Armory"
-API.Version = "0.3.11"
+API.Version = "0.3.12"
 local generation, busy, pending = 0, false, nil
 local logLines = {}
 
@@ -12,15 +12,16 @@ local logLines = {}
 -- Values are dye ROOT TEMPLATE UUIDs, not MaterialPreset UUIDs.
 local initialDyes = {
     -- Wyll: Black and Azure
-    ["def74bcd-48a7-55c2-99d6-9b72e66c2fe0"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Leather Armour +2 custom copy
+    ["def74bcd-48a7-55c2-99d6-9b72e66c2fe0"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Armour of the Blade of Frontiers
     ["334a92c4-f2b6-5dd8-9eb5-6606b424253e"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Gaze of the Blade of Frontiers
 
     -- Minthara: Black and Furnace Red. On Orin's dress this keeps the base dark
     -- and lets only the secondary channels carry a restrained blood-red accent.
     ["33bcf8bc-50ff-507b-aadf-53de85fb396d"] = "bb108620-186f-4a00-b7de-af9329d5497b",
 
-    -- Karlach: Black and Azure / cold charcoal-blue contrast
-    ["aef31c6f-07a7-5b20-9007-e910ca009ea1"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04"
+    -- Karlach: Black and Teal. Stronger cool contrast against her red skin than
+    -- the previous Black and Azure pass, while keeping the outfit infernal-dark.
+    ["aef31c6f-07a7-5b20-9007-e910ca009ea1"] = "94ef7170-1c1d-489a-9c18-55209d864e3a"
 }
 
 local function valid(uuid)
