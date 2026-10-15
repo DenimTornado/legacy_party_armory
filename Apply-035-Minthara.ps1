@@ -16,26 +16,9 @@ function Save-XmlUtf8([xml]$Doc, [string]$Path) {
     try { $Doc.PSBase.Save($writer) } finally { $writer.Dispose() }
 }
 
-function Set-Attr([xml]$Doc, $Node, [string]$Id, [string]$Type, [string]$Value) {
-    $a = $Node.SelectSingleNode("attribute[@id='$Id']")
-    if ($null -eq $a) {
-        $a = $Doc.CreateElement('attribute')
-        $a.SetAttribute('id', $Id)
-        [void]$Node.AppendChild($a)
-    }
-    $a.SetAttribute('type', $Type)
-    $a.SetAttribute('value', $Value)
-}
-
-$rootsPath = Join-Path $StageRoot 'Public/DenimDragonArmor/RootTemplates/_merged.lsx'
-[xml]$roots = Get-Content -Raw -LiteralPath $rootsPath
-$orin = $roots.SelectSingleNode("//node[@id='GameObjects'][attribute[@id='MapKey' and @value='33bcf8bc-50ff-507b-aadf-53de85fb396d']]")
-if ($null -eq $orin) { throw 'Missing Minthara vanity root' }
-
-# Stock monochrome White/Black palette. The dye object itself is not distributed.
-Set-Attr $roots $orin 'ColorPreset' 'guid' '9602f5d1-827b-f508-7dd4-c4b3ff068eec'
-Save-XmlUtf8 $roots $rootsPath
-
+# Colour is intentionally NOT baked into the root template here.
+# BootstrapServer.lua applies the selected dye to the created item instance
+# through ItemDye, so there is only one authoritative colour mechanism.
 foreach ($file in Get-ChildItem -LiteralPath (Join-Path $StageRoot 'Localization') -Recurse -Filter '*.xml' -File) {
     [xml]$loc = Get-Content -Raw -LiteralPath $file.FullName
     $ru = $file.Directory.Name -eq 'Russian'
@@ -57,4 +40,4 @@ foreach ($file in Get-ChildItem -LiteralPath (Join-Path $StageRoot 'Localization
     Save-XmlUtf8 $loc $file.FullName
 }
 
-Write-Host "Applied Minthara vanity refinement for $Mode."
+Write-Host "Applied Minthara vanity identity for $Mode."
