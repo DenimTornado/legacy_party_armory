@@ -3,24 +3,13 @@
   "bags": {
     "outer": {
       "uuid": "bbe14df0-3495-53b1-a2b9-1660d0e48eea",
-      "children": [
-        "paladin",
-        "wyll",
-        "karlach",
-        "minthara",
-        "jaheira",
-        "shadowheart"
-      ],
+      "children": ["paladin", "wyll", "karlach", "minthara", "jaheira", "shadowheart"],
       "items": []
     },
     "paladin": {
       "uuid": "3dc1396c-f093-5b9b-9650-c1671ddb6971",
       "children": [],
-      "items": [
-        "a22abf50-a0a1-47ad-9bd0-5866e72d9d95",
-        "b44e7251-75b9-46bf-9b67-79551ae6d603",
-        "77124822-32d2-56cd-a2f5-fb792a6a0991"
-      ]
+      "items": ["a22abf50-a0a1-47ad-9bd0-5866e72d9d95", "b44e7251-75b9-46bf-9b67-79551ae6d603", "77124822-32d2-56cd-a2f5-fb792a6a0991"]
     },
     "wyll": {
       "uuid": "a3e2b939-614c-5139-9eff-3a9786ff710a",
@@ -30,12 +19,7 @@
         "62d123ba-6635-544c-a2c2-e2d30ae3dd29",
         "1f4faeb8-fade-5d5f-8f40-acafaee41de7",
         "3ce4d5d2-3ed0-470e-8cea-bdac81a60583",
-        "f67b0733-ad73-4d1b-94fd-e3e0236623ca",
-        "76ce9b38-9203-437f-9962-4be4c4ad1193",
-        "dbd8a255-771c-4c3e-b3d6-65d744b2cbd8",
-        "cfbd013c-f24d-4430-be13-d7bfafd48709",
-        "1e59513c-a787-4f77-bcef-675ac4199daf",
-        "f6585fc7-22bb-4e58-b4a6-bbb56e48a86f",
+        "334a92c4-f2b6-5dd8-9eb5-6606b424253e",
         "257aed3e-370d-40b3-b464-de10257dd82b",
         "bb108620-186f-4a00-b7de-af9329d5497b",
         "02bb51c0-00e5-408c-8e11-8de7b9580c04"
@@ -44,43 +28,22 @@
     "karlach": {
       "uuid": "ba49b882-682e-5d4f-a59b-bef7e9807d35",
       "children": [],
-      "items": [
-        "1c0f33c4-86d0-5a5e-941f-4d8db521cdcf",
-        "7ab6c22f-6151-575d-9b92-db618672ea1b",
-        "aef31c6f-07a7-5b20-9007-e910ca009ea1",
-        "1d0d3883-6196-4ccd-8a49-8e4fb84f6c6b"
-      ]
+      "items": ["1c0f33c4-86d0-5a5e-941f-4d8db521cdcf", "7ab6c22f-6151-575d-9b92-db618672ea1b", "aef31c6f-07a7-5b20-9007-e910ca009ea1", "1d0d3883-6196-4ccd-8a49-8e4fb84f6c6b"]
     },
     "minthara": {
       "uuid": "0cf625ee-3c50-5c8b-bdac-6590bb4bc112",
       "children": [],
-      "items": [
-        "66403a1f-6450-5a91-a2d9-9d23f5fdb555",
-        "92b759b8-117c-5056-b181-43c26b234fa1",
-        "33bcf8bc-50ff-507b-aadf-53de85fb396d",
-        "8ed92d35-159c-493c-a8da-fba455f181e4"
-      ]
+      "items": ["66403a1f-6450-5a91-a2d9-9d23f5fdb555", "92b759b8-117c-5056-b181-43c26b234fa1", "33bcf8bc-50ff-507b-aadf-53de85fb396d", "8ed92d35-159c-493c-a8da-fba455f181e4"]
     },
     "jaheira": {
       "uuid": "dc2252a0-ab85-5685-933d-8f7a682cbea3",
       "children": [],
-      "items": [
-        "b429ba93-74a8-576c-a3b6-175b16b0f748",
-        "d60524f4-583e-4b16-91b2-871221d441cf",
-        "b9656931-da39-4024-92a2-f45264593b14"
-      ]
+      "items": ["b429ba93-74a8-576c-a3b6-175b16b0f748", "d60524f4-583e-4b16-91b2-871221d441cf", "b9656931-da39-4024-92a2-f45264593b14"]
     },
     "shadowheart": {
       "uuid": "786e1c5e-485c-5076-9856-bde92a985614",
       "children": [],
-      "items": [
-        "8d4b2e5c-3ecd-541c-a26a-ee934b4fbf18",
-        "2cdc4e25-fea0-55fd-b430-e133558addf2",
-        "0d3fe975-6c2d-5083-b7fd-73b3a77269d3",
-        "3523b640-e9da-4d89-b031-6ffe1d5fd3ed",
-        "ffdb4490-cbaf-4eac-97f8-893564d7ead9",
-        "02bb51c0-00e5-408c-8e11-8de7b9580c04"
-      ]
+      "items": ["8d4b2e5c-3ecd-541c-a26a-ee934b4fbf18", "2cdc4e25-fea0-55fd-b430-e133558addf2", "0d3fe975-6c2d-5083-b7fd-73b3a77269d3", "3523b640-e9da-4d89-b031-6ffe1d5fd3ed", "ffdb4490-cbaf-4eac-97f8-893564d7ead9", "02bb51c0-00e5-408c-8e11-8de7b9580c04"]
     }
   }
 }
