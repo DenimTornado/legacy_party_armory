@@ -30,9 +30,10 @@ Get-ChildItem -LiteralPath $sourceRoot | ForEach-Object {
 & (Join-Path $projectRoot 'Apply-035-Wyll.ps1') -StageRoot $stageRoot -Mode $Mode
 & (Join-Path $projectRoot 'Apply-035-Shadowheart.ps1') -StageRoot $stageRoot -Mode $Mode
 & (Join-Path $projectRoot 'Apply-039-WyllArmor.ps1') -StageRoot $stageRoot -Mode $Mode
+& (Join-Path $projectRoot 'Apply-041-WyllGear.ps1') -StageRoot $stageRoot -Mode $Mode
 
 $metaPath = Join-Path $stageRoot 'Mods/DenimDragonArmor/meta.lsx'
-$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.2 ', '0.3.11 ').Replace('36028797019013121', '36028797019013130')
+$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.2 ', '0.3.12 ').Replace('36028797019013121', '36028797019013131')
 [IO.File]::WriteAllText($metaPath, $meta, (New-Object System.Text.UTF8Encoding($false)))
 
 function Assert-StagePath([string]$Path) {
@@ -70,6 +71,6 @@ $luaRoot = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua'
 [IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.lua'), ('return Ext.Json.Parse([==[' + $data + ']==])' + "`n"), $utf8)
 $outputRoot = Join-Path $projectRoot 'dist'
 $null = New-Item -ItemType Directory -Path $outputRoot -Force
-$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.11_' + $Mode.ToUpperInvariant() + '.pak')
+$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.12_' + $Mode.ToUpperInvariant() + '.pak')
 Invoke-Divine @('-g','bg3','-a','create-package','-s',$stageRoot,'-d',$pak,'-c','lz4','--package-priority','30')
 Write-Host "Built $pak"
