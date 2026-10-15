@@ -13,10 +13,11 @@ local logLines = {}
 local initialDyes = {
     -- Wyll: Black and Azure
     ["def74bcd-48a7-55c2-99d6-9b72e66c2fe0"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Leather Armour +2 custom copy
-    ["334a92c4-f2b6-5dd8-9eb5-6606b424253e"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Deadeye of the Frontiers
+    ["334a92c4-f2b6-5dd8-9eb5-6606b424253e"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04", -- Gaze of the Blade of Frontiers
 
-    -- Minthara: White and Black (reads almost-black on Orin's dress)
-    ["33bcf8bc-50ff-507b-aadf-53de85fb396d"] = "ffdb4490-cbaf-4eac-97f8-893564d7ead9",
+    -- Minthara: Black and Furnace Red. On Orin's dress this keeps the base dark
+    -- and lets only the secondary channels carry a restrained blood-red accent.
+    ["33bcf8bc-50ff-507b-aadf-53de85fb396d"] = "bb108620-186f-4a00-b7de-af9329d5497b",
 
     -- Karlach: Black and Azure / cold charcoal-blue contrast
     ["aef31c6f-07a7-5b20-9007-e910ca009ea1"] = "02bb51c0-00e5-408c-8e11-8de7b9580c04"
