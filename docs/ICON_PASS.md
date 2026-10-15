@@ -1,6 +1,6 @@
 # Legacy Party Armory — custom icon pass
 
-All actively distributed custom items must receive unique BG3-style icons. Do not reuse vanilla inventory art in the final package.
+The custom items listed below must receive unique BG3-style icons. Do not reuse vanilla inventory art for these items in the final package.
 
 ## Technical output per item
 
@@ -17,7 +17,6 @@ Match vanilla Baldur's Gate 3 inventory rendering: isolated object, painterly-re
 ## Active custom item set
 
 ### Paladin
-- `LPA_Carsomyr` — silver greatsword, crimson grip, tiny radiant edge accent, no halo/bloom.
 - `DENIM_RedDragon_Armor` — red dragon scale cuirass, dark iron fittings.
 - `DENIM_RedDragon_Helmet` — matching draconic helmet, cold metallic horns/edges.
 
@@ -49,7 +48,6 @@ Match vanilla Baldur's Gate 3 inventory rendering: isolated object, painterly-re
 
 Recommended icon IDs:
 
-- `LPA_ICON_Carsomyr`
 - `LPA_ICON_DragonArmor`
 - `LPA_ICON_DragonHelmet`
 - `LPA_ICON_CharonsClaw`
