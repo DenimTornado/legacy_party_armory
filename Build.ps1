@@ -32,9 +32,17 @@ Get-ChildItem -LiteralPath $sourceRoot | ForEach-Object {
 & (Join-Path $projectRoot 'Apply-039-WyllArmor.ps1') -StageRoot $stageRoot -Mode $Mode
 & (Join-Path $projectRoot 'Apply-041-WyllGear.ps1') -StageRoot $stageRoot -Mode $Mode
 & (Join-Path $projectRoot 'Apply-041-SystemCleanup.ps1') -StageRoot $stageRoot -Mode $Mode
+& (Join-Path $projectRoot 'Apply-042-ShadowheartIdentity.ps1') -StageRoot $stageRoot -Mode $Mode
+& (Join-Path $projectRoot 'Apply-042-JaheiraIdentity.ps1') -StageRoot $stageRoot -Mode $Mode
+& (Join-Path $projectRoot 'Apply-042-WyllNames.ps1') -StageRoot $stageRoot -Mode $Mode
+
+# Runtime version follows the staged patch set.
+$runtimePath = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua/BootstrapServer.lua'
+$runtime = [IO.File]::ReadAllText($runtimePath).Replace('API.Version = "0.3.13"', 'API.Version = "0.3.14"')
+[IO.File]::WriteAllText($runtimePath, $runtime, (New-Object System.Text.UTF8Encoding($false)))
 
 $metaPath = Join-Path $stageRoot 'Mods/DenimDragonArmor/meta.lsx'
-$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.2 ', '0.3.13 ').Replace('36028797019013121', '36028797019013132')
+$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.2 ', '0.3.14 ').Replace('36028797019013121', '36028797019013133')
 [IO.File]::WriteAllText($metaPath, $meta, (New-Object System.Text.UTF8Encoding($false)))
 
 function Assert-StagePath([string]$Path) {
@@ -72,6 +80,6 @@ $luaRoot = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua'
 [IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.lua'), ('return Ext.Json.Parse([==[' + $data + ']==])' + "`n"), $utf8)
 $outputRoot = Join-Path $projectRoot 'dist'
 $null = New-Item -ItemType Directory -Path $outputRoot -Force
-$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.13_' + $Mode.ToUpperInvariant() + '.pak')
+$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.14_' + $Mode.ToUpperInvariant() + '.pak')
 Invoke-Divine @('-g','bg3','-a','create-package','-s',$stageRoot,'-d',$pak,'-c','lz4','--package-priority','30')
 Write-Host "Built $pak"
