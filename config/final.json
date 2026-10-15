@@ -38,6 +38,7 @@
       "items": [
         "1c0f33c4-86d0-5a5e-941f-4d8db521cdcf",
         "7ab6c22f-6151-575d-9b92-db618672ea1b",
+        "aef31c6f-07a7-5b20-9007-e910ca009ea1",
         "1d0d3883-6196-4ccd-8a49-8e4fb84f6c6b"
       ]
     },
@@ -47,7 +48,8 @@
       "items": [
         "66403a1f-6450-5a91-a2d9-9d23f5fdb555",
         "92b759b8-117c-5056-b181-43c26b234fa1",
-        "94ef7170-1c1d-489a-9c18-55209d864e3a"
+        "33bcf8bc-50ff-507b-aadf-53de85fb396d",
+        "bb108620-186f-4a00-b7de-af9329d5497b"
       ]
     },
     "jaheira": {
@@ -59,13 +61,6 @@
     },
     "shadowheart": {
       "uuid": "786e1c5e-485c-5076-9856-bde92a985614",
-      "children": [
-        "shar"
-      ],
-      "items": []
-    },
-    "shar": {
-      "uuid": "4a5636ba-19bf-5359-96f2-473efc5aa880",
       "children": [],
       "items": [
         "8d4b2e5c-3ecd-541c-a26a-ee934b4fbf18",
