@@ -25,9 +25,11 @@ function Add-Attr([xml]$Doc, $Node, [string]$Id, [string]$Type, [string]$Value) 
     return $a
 }
 
-# Wyll: custom Legendary copy of Leather Armour +2 with Boreal Blue baked in.
+# Wyll: custom Legendary copy of Leather Armour +2.
 # Vanilla source: ac71c753-c207-465c-b28b-c10f95ed0745 / ARM_Leather_Body_2.
-# Boreal Blue ColorPreset: 19c4c4c7-1157-0969-61df-5f1065a14f2c.
+# Colour is applied later to the created instance by BootstrapServer.lua via
+# ItemDye. Do not add ColorPreset here: root-level and instance-level dye state
+# must not compete with each other.
 $statsPath = Join-Path $StageRoot 'Public/DenimDragonArmor/Stats/Generated/Data/LegacyPartyArmory.txt'
 $stats = [IO.File]::ReadAllText($statsPath)
 if (-not $stats.Contains('new entry "LPA_WyllLeatherArmor"')) {
@@ -52,7 +54,6 @@ if ($null -eq $existing) {
 
     $n = $roots.CreateElement('node')
     $n.SetAttribute('id','GameObjects')
-    [void](Add-Attr $roots $n 'ColorPreset' 'guid' '19c4c4c7-1157-0969-61df-5f1065a14f2c')
     [void](Add-Attr $roots $n 'LevelName' 'FixedString' '')
     [void](Add-Attr $roots $n 'MapKey' 'FixedString' 'def74bcd-48a7-55c2-99d6-9b72e66c2fe0')
     [void](Add-Attr $roots $n 'Name' 'LSString' 'LPA_WyllLeatherArmor')
@@ -63,4 +64,4 @@ if ($null -eq $existing) {
 }
 Save-XmlUtf8 $roots $rootsPath
 
-Write-Host "Applied Wyll Leather Armour +2 / Boreal Blue custom copy for $Mode."
+Write-Host "Applied Wyll Leather Armour +2 custom copy for $Mode."
