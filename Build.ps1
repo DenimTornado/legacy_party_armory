@@ -1,6 +1,7 @@
 param(
     [ValidateSet('preview','final')][string]$Mode = 'preview',
-    [string]$Divine = $env:BG3_DIVINE
+    [string]$Divine = $env:BG3_DIVINE,
+    [string]$Python = $env:BG3_PYTHON
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = [IO.Path]::GetFullPath($PSScriptRoot)
@@ -36,13 +37,25 @@ Get-ChildItem -LiteralPath $sourceRoot | ForEach-Object {
 & (Join-Path $projectRoot 'Apply-042-JaheiraIdentity.ps1') -StageRoot $stageRoot -Mode $Mode
 & (Join-Path $projectRoot 'Apply-042-WyllNames.ps1') -StageRoot $stageRoot -Mode $Mode
 
+if (-not $Python) {
+    $pythonCommand = Get-Command python -ErrorAction SilentlyContinue
+    if ($pythonCommand) { $Python = $pythonCommand.Source }
+}
+if (-not $Python) { throw 'Provide Python with Pillow: -Python C:/Python/python.exe (or BG3_PYTHON).' }
+& $Python (Join-Path $projectRoot 'authoring/patch_visuals_0316.py') --project-root $projectRoot --stage-root $stageRoot
+if ($LASTEXITCODE -ne 0) { throw 'Equipment visual patch failed.' }
+& $Python (Join-Path $projectRoot 'authoring/weapon_regions_0318.py') --project-root $projectRoot --stage-root $stageRoot
+if ($LASTEXITCODE -ne 0) { throw 'Weapon region material patch failed.' }
+& $Python (Join-Path $projectRoot 'authoring/build_icons.py') --project-root $projectRoot --stage-root $stageRoot
+if ($LASTEXITCODE -ne 0) { throw 'Equipment icon compilation failed.' }
+
 # Runtime version follows the staged patch set.
 $runtimePath = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua/BootstrapServer.lua'
-$runtime = [IO.File]::ReadAllText($runtimePath).Replace('API.Version = "0.3.13"', 'API.Version = "0.3.14"')
+$runtime = [IO.File]::ReadAllText($runtimePath).Replace('API.Version = "0.3.13"', 'API.Version = "0.3.19"')
 [IO.File]::WriteAllText($runtimePath, $runtime, (New-Object System.Text.UTF8Encoding($false)))
 
 $metaPath = Join-Path $stageRoot 'Mods/DenimDragonArmor/meta.lsx'
-$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.2 ', '0.3.14 ').Replace('36028797019013121', '36028797019013133')
+$meta = [IO.File]::ReadAllText($metaPath).Replace('0.3.2 ', '0.3.19 ').Replace('36028797019013121', '36028797019013138')
 [IO.File]::WriteAllText($metaPath, $meta, (New-Object System.Text.UTF8Encoding($false)))
 
 function Assert-StagePath([string]$Path) {
@@ -80,6 +93,6 @@ $luaRoot = Join-Path $stageRoot 'Mods/DenimDragonArmor/ScriptExtender/Lua'
 [IO.File]::WriteAllText((Join-Path $luaRoot 'ArmoryData.lua'), ('return Ext.Json.Parse([==[' + $data + ']==])' + "`n"), $utf8)
 $outputRoot = Join-Path $projectRoot 'dist'
 $null = New-Item -ItemType Directory -Path $outputRoot -Force
-$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.14_' + $Mode.ToUpperInvariant() + '.pak')
+$pak = Join-Path $outputRoot ('LegacyPartyArmory_0.3.19_' + $Mode.ToUpperInvariant() + '.pak')
 Invoke-Divine @('-g','bg3','-a','create-package','-s',$stageRoot,'-d',$pak,'-c','lz4','--package-priority','30')
 Write-Host "Built $pak"

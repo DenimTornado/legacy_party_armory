@@ -1,0 +1,42 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "selected_retries": [
+    {
+      "key": "MenzoberranzanVeil",
+      "prompt": "BG3 inventory icon, isolated empty wearable outfit on a truly transparent background. Recreate ONLY the black openwork chitin clothing and silver hip chains worn by the woman in this screenshot. Large chest, abdomen, side and thigh holes must remain TRANSPARENT, not filled with fabric or skin. Thin shiny black riblike strips connect the torso and long fitted sleeves. Low hip ring chains and separate long split leg panels. No person, no skin, no mannequin, no head, no game UI, no weapons, no red full plate cuirass. Full outfit centered and fully visible, realistic hand-painted BG3 item art, crisp readable small silhouette. Faithfully match the screenshot's cutout construction.",
+      "master": "assets/icons/masters/MenzoberranzanVeil.png",
+      "reference": "C:/Users/Sergey/AppData/Local/Temp/codex-clipboard-6d46b9b6-2c1a-4876-beaa-1ce48b5b0155.png"
+    },
+    {
+      "key": "ViconiaRobe",
+      "prompt": "Redraw this native Baldur's Gate 3 ROBE inventory icon in high resolution, staying very close to its actual garment silhouette. Only one empty garment centered on transparent background. Repaint dark charcoal black, muted grey skirt panels, dark silver ring clasps at waist. Long fitted sleeves and broad angular asymmetric shoulder yoke, LOW OPEN NECKLINE, NO tall collar. Simple fitted diagonal-overlap black bodice, long flowing skirt open with a central front split, no trousers inside. No body, skin, mannequin, head, shield or weapons. No invented ornate silver filigree, no added plate armor. Realistic painterly BG3 item art with crisp restrained cool highlights to keep black fabric visible. Full dress shown with margins, genuine transparency including front split, no background glow, no text or border.",
+      "master": "assets/icons/masters/ViconiaRobe.png",
+      "reference": "assets/icons/references/bg3/ViconiaRobe.png"
+    }
+  ],
+  "edits": [
+    {
+      "key": "CharonsClaw",
+      "refs": [
+        "E:/Games/Aditional/BG3/legacy_party_armory/assets/icons/masters/CharonsClaw.png"
+      ],
+      "prompt": "Edit this Baldur's Gate 3 inventory icon. Preserve the EXACT existing sword silhouette, shape, angle, hilt, guard and composition. Only change the blade: make the whole cutting blade deep saturated crimson RED forged metal, with sharp lighter metallic red reflections, dark red facets and a thin bright steel edge. No orange flame blade, no glowing aura. Keep original hilt unchanged. Isolated single item, no text, no border, truly transparent background."
+    },
+    {
+      "key": "MenzoberranzanVeil",
+      "refs": [
+        "C:/Users/Sergey/AppData/Local/Temp/codex-clipboard-6d46b9b6-2c1a-4876-beaa-1ce48b5b0155.png",
+        "E:/Games/Aditional/BG3/legacy_party_armory/assets/icons/masters/MenzoberranzanVeil.png"
+      ],
+      "prompt": "Create replacement BG3 equipment inventory icon of ONLY the wearable black chitin outfit shown on the woman in screenshot reference 1. Reference 2 provides painterly icon rendering style only; its solid armored torso is WRONG. Faithfully show the screenshot's OPENWORK clothing: narrow glossy black chitin strips over chest with several large open cutouts, uncovered shoulder openings, very large side and belly cutouts, narrow connecting waist, silver rings and dangling silver chains across low hips, separate long split leg-side panels with large empty openings. Render all holes as actual transparent empty space, do not fill the torso, crotch or thighs with black fabric. No wearer, no skin, no anatomical body, no head, no arms or legs inside. It is an isolated hollow clothing object laid frontally upright. Black glossy beetle-shell material, subtle brown/gold reflections and silver chains. No red full plate armor, no invented shoulder spikes, no solid skirt. Hand-painted realistic BG3 item icon, crisp silhouette readable at 64px, entire outfit within square canvas, truly transparent background, no text or frame."
+    },
+    {
+      "key": "ViconiaRobe",
+      "refs": [
+        "C:/Users/Sergey/AppData/Local/Temp/codex-clipboard-f3efba08-dbfa-42c9-be6e-77180ad9a9a3.png",
+        "E:/Games/Aditional/BG3/legacy_party_armory/assets/icons/masters/ViconiaRobe.png"
+      ],
+      "prompt": "Redraw a BG3 equipment inventory icon to faithfully show ONLY the actual long black robe worn in screenshot reference 1. Ignore the enormous blue shield, spear and character, those are separate items. Match visible robe: dark charcoal asymmetric broad shoulder yoke, low open neckline, black fitted upper torso with diagonal overlapping construction, narrow waist decorated with a few dark silver rings at sides, long flowing black skirt with muted gray side panels and a high central front split. Sleeves fitted dark leather, restrained decoration. NO trousers underneath, render slit as empty transparent space. Existing icon reference 2 is only painterly BG3 style guide: discard its invented stiff high collar, symmetric ornate silver scrollwork and overly elaborate shoulders. No head, no skin, no wearer, no mannequin, only empty clothing silhouette. Full garment centered, hand-painted realistic BG3 icon, good readable contrast at 64px, truly transparent background, no text, no frame."
+    }
+  ]
+}

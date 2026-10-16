@@ -15,6 +15,7 @@ MOCK = r'''
 listeners, timers, entities, requests, deleted, logs = {}, {}, {}, {}, {}, {}
 host = "Host_00000000-0000-0000-0000-000000000001"
 combat, synchronous, loseEvent, failAt, wrongOwner = 0, false, false, 0, false
+dyeMissing, dyeCount = false, 0
 now, sequence, serial = 0, 0, 0
 function wait(ms, fn)
     serial = serial + 1
@@ -41,6 +42,14 @@ Ext = {
     end},
     Timer={WaitFor=wait},
     Entity={Get=function(id) return entities[id] end},
+    Template={GetTemplate=function(id)
+        if dyeMissing then return nil end
+        return {ColorPreset="00000000-0000-0000-0000-000000000088"}
+    end},
+    Resource={Get=function(id,kind)
+        assert(kind=="MaterialPreset")
+        return {Guid=id}
+    end},
     Events={SessionLoaded={Subscribe=function(self,fn) loaded=fn end}}
 }
 Osi = {
@@ -59,6 +68,13 @@ Osi = {
         local function emit()
             if loseEvent then return end
             entities[id]={template=template,parent=wrongOwner and host or parent}
+            entities[id].CreateComponent=function(self,name)
+                assert(name=="ItemDye"); self.ItemDye={}
+            end
+            entities[id].Replicate=function(self,name)
+                assert(name=="ItemDye" and self.ItemDye.Color)
+                dyeCount=dyeCount+1
+            end
             listeners.TemplateAddedTo("Root_"..template,id,parent,"Regular")
             listeners.TemplateAddedTo(template,id,parent,"Regular") -- duplicate
         end
@@ -90,7 +106,7 @@ class Delivery(unittest.TestCase):
         return lua, data
 
     def test_complete_nested_delivery_both_event_timings(self):
-        for mode, count in [('preview', 43), ('final', 26)]:
+        for mode, count in [('preview', 30), ('final', 25)]:
             for synchronous in [False, True]:
                 with self.subTest(mode=mode, synchronous=synchronous):
                     lua, data = self.runtime(mode)
@@ -145,6 +161,21 @@ class Delivery(unittest.TestCase):
         lua.execute('combat=1')
         self.assertFalse(lua.eval('LegacyPartyArmory.Give()')[0])
         self.assertEqual(0, len(lua.globals().requests))
+
+    def test_initial_dyes_apply_and_replicate_only_to_selected_items(self):
+        for mode in ['preview', 'final']:
+            lua, _ = self.runtime(mode)
+            lua.execute('LegacyPartyArmory.Give(); drain()')
+            self.assertEqual(4, lua.globals().dyeCount)
+            self.assertIsNone(lua.globals().LegacyPartyArmory.LastError)
+
+    def test_missing_dye_resource_logs_error_without_interrupting_delivery(self):
+        lua, _ = self.runtime()
+        lua.execute('dyeMissing=true; LegacyPartyArmory.Give(); drain()')
+        self.assertEqual(30, len(lua.globals().requests))
+        self.assertEqual(0, lua.globals().dyeCount)
+        self.assertIsNone(lua.globals().LegacyPartyArmory.LastError)
+        self.assertIn('Initial dye failed', lua.globals().logs[len(lua.globals().logs)])
 
 
 if __name__ == '__main__':

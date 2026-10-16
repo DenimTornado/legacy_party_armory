@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "selected_Viconia_reference": "assets/icons/references/0.3.16/ViconiaRobe_64.png",
+  "selected_Viconia_prompt": "Edit this clothing into a compact BG3 ARMOUR TORSO ICON, cut off precisely at the WAIST and completely SLEEVELESS. Show ONLY the shoulder yoke and wrap bodice down to the waist rings and short waist hem. REMOVE BOTH SLEEVES and the ENTIRE LONG SKIRT BELOW THE WAIST. No legs, no skirt, no dangling fabric. The resulting icon is a short wide chestpiece, matching standard BG3 armour inventory icon format. Preserve broad angular charcoal shoulder yoke, low open V neckline, dark diagonal overlapping bodice and silver ring waist clasps. Empty sleeveless garment, no person, no skin or mannequin. Same realistic painterly BG3 style as original, crisp cool highlights on charcoal-black cloth. Center waist-length torso on SQUARE truly transparent background, large and readable at64px. No text, frame or background glow. Use the provided small reference as the exact original garment's shape and palette, rendering its upper bodice in high resolution. Only a sleeveless waist-length torso, no skirt or long sleeves.",
+  "edits": [
+    {
+      "key": "EntreriDagger",
+      "ref": "assets/icons/history/0.3.16/EntreriDagger.png",
+      "prompt": "Edit this BG3 inventory icon. Preserve exact curved dagger silhouette, orientation, ornate silver hilt, black handle, and GREEN gemstones unchanged. Recolor ONLY the metal BLADE from greenish black to rich dark crimson RED steel, with bright metallic red reflections and thin silver cutting edge. No flames or glowing aura. Same realistic painterly BG3 inventory icon style. Isolated single complete dagger, true transparent background, no text or frame."
+    },
+    {
+      "key": "MenzoberranzanVeil",
+      "ref": "assets/icons/history/0.3.16/MenzoberranzanVeil.png",
+      "prompt": "Edit this clothing into a compact BG3 ARMOUR TORSO ICON, cut off at the WAIST and completely SLEEVELESS. Show ONLY the upper bodice from collar and shoulder straps down to a neat waist edge. REMOVE BOTH SLEEVES, ALL LOWER HIP PANELS, ALL LEGS, all long dangling chains below waist. The resulting icon is a short wide chestpiece, like a standard BG3 cuirass inventory icon. Preserve recognizable black chitin rib strips, existing silver chest fasteners, openwork chest holes and HUGE OPEN SIDE/ABDOMEN CUTOUTS as genuinely transparent spaces. Preserve dark glossy black palette and sharp painterly metal/chitin highlights. Empty garment, no wearer, no body or skin, no mannequin. Center this sleeveless waist-length torso ONLY on a SQUARE transparent canvas, large and readable at 64px, no glow or background, no text or border."
+    },
+    {
+      "key": "ViconiaRobe",
+      "ref": "assets/icons/history/0.3.16/ViconiaRobe.png",
+      "prompt": "Edit this clothing into a compact BG3 ARMOUR TORSO ICON, cut off precisely at the WAIST and completely SLEEVELESS. Show ONLY the shoulder yoke and wrap bodice down to the waist rings and short waist hem. REMOVE BOTH SLEEVES and the ENTIRE LONG SKIRT BELOW THE WAIST. No legs, no skirt, no dangling fabric. The resulting icon is a short wide chestpiece, matching standard BG3 armour inventory icon format. Preserve broad angular charcoal shoulder yoke, low open V neckline, dark diagonal overlapping bodice and silver ring waist clasps. Empty sleeveless garment, no person, no skin or mannequin. Same realistic painterly BG3 style as original, crisp cool highlights on charcoal-black cloth. Center waist-length torso on SQUARE truly transparent background, large and readable at64px. No text, frame or background glow."
+    }
+  ]
+}

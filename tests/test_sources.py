@@ -23,12 +23,13 @@ class SourceSnapshot(unittest.TestCase):
         cls.templates = {n.find('attribute[@id="MapKey"]').get('value'): n for n in template.findall('.//node[@id="GameObjects"]')}
 
     def test_bag_structure_and_counts(self):
-        for mode, count in [('preview', 43), ('final', 26)]:
+        for mode, count in [('preview', 30), ('final', 25)]:
             bags = self.configs[mode]['bags']
-            self.assertEqual(8, len(bags))
+            self.assertEqual(7, len(bags))
             self.assertEqual(count, sum(1 + len(v['items']) for v in bags.values()))
             self.assertEqual(['paladin', 'wyll', 'karlach', 'minthara', 'jaheira', 'shadowheart'], bags['outer']['children'])
-            self.assertEqual(['shar'], bags['shadowheart']['children'])
+            self.assertEqual([], bags['shadowheart']['children'])
+            self.assertNotIn('shar', bags)
             for bag in bags.values():
                 self.assertIn(bag['uuid'], self.templates)
                 self.assertTrue(all(child in bags for child in bag['children']))

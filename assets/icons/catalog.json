@@ -1,0 +1,182 @@
+[
+  {
+    "key": "DragonArmor",
+    "uuid": "a22abf50-a0a1-47ad-9bd0-5866e72d9d95",
+    "stats": "DENIM_RedDragon_Armor",
+    "native_icon": "Item_Denim_RedDragon_Armor",
+    "icon_id": "LPA_ICON_DragonArmor",
+    "design_source": "BG2",
+    "reference": "https://baldursgate.fandom.com/wiki/Red_Dragon_Scale",
+    "art_status": "existing approved dragon artwork"
+  },
+  {
+    "key": "DragonHelmet",
+    "uuid": "b44e7251-75b9-46bf-9b67-79551ae6d603",
+    "stats": "DENIM_RedDragon_Helmet",
+    "native_icon": "Item_Denim_RedDragon_Helmet",
+    "icon_id": "LPA_ICON_DragonHelmet",
+    "design_source": "BG2",
+    "reference": "https://baldursgate.fandom.com/wiki/Dragon_Helm",
+    "art_status": "existing approved dragon artwork"
+  },
+  {
+    "key": "Carsomyr",
+    "uuid": "77124822-32d2-56cd-a2f5-fb792a6a0991",
+    "stats": "LPA_Carsomyr",
+    "native_icon": "Item_WPN_GTY_Greatsword_A_GLOW",
+    "icon_id": "LPA_ICON_Carsomyr",
+    "design_source": "BG2",
+    "reference": "https://mikesrpgcenter.com/bgate2/weapons/twohandedswords.html",
+    "art_status": "revised in 0.3.19 from exact in-game mesh projection, steel blade and gold lateral quillons"
+  },
+  {
+    "key": "CharonsClaw",
+    "uuid": "06466f65-ffe9-5d05-bc0d-357031742c30",
+    "stats": "LPA_CharonsClaw",
+    "native_icon": "Item_WPN_HUM_Longsword_A_2",
+    "icon_id": "LPA_ICON_CharonsClaw",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/CharonsClaw.png",
+    "art_status": "restored to 0.3.15 in 0.3.17"
+  },
+  {
+    "key": "CharonsGauntlet",
+    "uuid": "62d123ba-6635-544c-a2c2-e2d30ae3dd29",
+    "stats": "LPA_CharonsGauntlet",
+    "native_icon": "Item_ARM_Gloves_Leather_3",
+    "icon_id": "LPA_ICON_CharonsGauntlet",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/CharonsGauntlet.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "EntreriDagger",
+    "uuid": "1f4faeb8-fade-5d5f-8f40-acafaee41de7",
+    "stats": "LPA_EntreriDagger",
+    "native_icon": "Item_WPN_HUM_Dagger_Orin_A",
+    "icon_id": "LPA_ICON_EntreriDagger",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/EntreriDagger.png",
+    "art_status": "revised in 0.3.17 from user feedback"
+  },
+  {
+    "key": "WyllLeatherArmor",
+    "uuid": "def74bcd-48a7-55c2-99d6-9b72e66c2fe0",
+    "stats": "LPA_WyllLeatherArmor",
+    "native_icon": "Item_ARM_Leather_2",
+    "icon_id": "LPA_ICON_WyllLeatherArmor",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/WyllLeatherArmor.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "WyllMarksmanHat",
+    "uuid": "334a92c4-f2b6-5dd8-9eb5-6606b424253e",
+    "stats": "LPA_WyllMarksmanHat",
+    "native_icon": "Generated_ARM_Hat_Wizard_E",
+    "icon_id": "LPA_ICON_WyllMarksmanHat",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/WyllMarksmanHat.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "DragonsBreath",
+    "uuid": "1c0f33c4-86d0-5a5e-941f-4d8db521cdcf",
+    "stats": "LPA_DragonsBreath",
+    "native_icon": "Item_WPN_HUM_Halberd_A_2",
+    "icon_id": "LPA_ICON_DragonsBreath",
+    "design_source": "BG2",
+    "reference": "https://mikesrpgcenter.com/bgate2/weapons/halberds.html",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "InfernalMaul",
+    "uuid": "7ab6c22f-6151-575d-9b92-db618672ea1b",
+    "stats": "LPA_InfernalMaul",
+    "native_icon": "Item_MAG_SWA_Roaring_Maul_GLOW",
+    "icon_id": "LPA_ICON_InfernalMaul",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/InfernalMaul.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "AshenHeartguard",
+    "uuid": "aef31c6f-07a7-5b20-9007-e910ca009ea1",
+    "stats": "LPA_AshenHeartguard",
+    "native_icon": "Generated_UNI_Barbarian_Karlach",
+    "icon_id": "LPA_ICON_AshenHeartguard",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/AshenHeartguard.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "Icingdeath",
+    "uuid": "66403a1f-6450-5a91-a2d9-9d23f5fdb555",
+    "stats": "LPA_Icingdeath",
+    "native_icon": "Item_WPN_HUM_Scimitar_Adamantine_A",
+    "icon_id": "LPA_ICON_Icingdeath",
+    "design_source": "BG2",
+    "reference": "https://mikesrpgcenter.com/bgate2/weapons/scimitars.html",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "Twinkle",
+    "uuid": "92b759b8-117c-5056-b181-43c26b234fa1",
+    "stats": "LPA_Twinkle",
+    "native_icon": "Item_WPN_HUM_Scimitar_A_2",
+    "icon_id": "LPA_ICON_Twinkle",
+    "design_source": "BG2",
+    "reference": "https://mikesrpgcenter.com/bgate2/weapons/scimitars.html",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "MenzoberranzanVeil",
+    "uuid": "33bcf8bc-50ff-507b-aadf-53de85fb396d",
+    "stats": "LPA_OrinVanity",
+    "native_icon": "Item_MAG_Orin_Cloth",
+    "icon_id": "LPA_ICON_MenzoberranzanVeil",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/MenzoberranzanVeil.png",
+    "art_status": "revised in 0.3.17 from user feedback"
+  },
+  {
+    "key": "HarperFinery",
+    "uuid": "b429ba93-74a8-576c-a3b6-175b16b0f748",
+    "stats": "LPA_HarperFinery",
+    "native_icon": "Item_GOB_DrowCommander_Leather_Armor_GLOW",
+    "icon_id": "LPA_ICON_HarperFinery",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/HarperFinery.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "SharSpear",
+    "uuid": "8d4b2e5c-3ecd-541c-a26a-ee934b4fbf18",
+    "stats": "LPA_SharSpear",
+    "native_icon": "Item_MAG_SHA_SeluneBlessing_Spear_GLOW",
+    "icon_id": "LPA_ICON_SharSpear",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/SharSpear.png",
+    "art_status": "new imagegen pass"
+  },
+  {
+    "key": "ViconiaRobe",
+    "uuid": "2cdc4e25-fea0-55fd-b430-e133558addf2",
+    "stats": "LPA_ViconiaRobe",
+    "native_icon": "Generated_MAG_Robe_Shar_Magic",
+    "icon_id": "LPA_ICON_ViconiaRobe",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/ViconiaRobe.png",
+    "art_status": "revised in 0.3.18 to match neckline and upper hips"
+  },
+  {
+    "key": "WalkingFortress",
+    "uuid": "0d3fe975-6c2d-5083-b7fd-73b3a77269d3",
+    "stats": "LPA_WalkingFortress",
+    "native_icon": "Item_MAG_TheBulwark_Shield",
+    "icon_id": "LPA_ICON_WalkingFortress",
+    "design_source": "BG3 in-game model",
+    "reference": "references/bg3/WalkingFortress.png",
+    "art_status": "new imagegen pass"
+  }
+]

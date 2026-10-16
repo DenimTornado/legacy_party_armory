@@ -22,4 +22,25 @@ $lua = $lua.Replace(
 )
 [IO.File]::WriteAllText($luaPath, $lua, $utf8)
 
+# Earlier staging patches can still leave ColorPreset on these roots (notably
+# Apply-034's Orin dress). Remove explicit palettes after all of those patches.
+$rootsPath = Join-Path $StageRoot 'Public/DenimDragonArmor/RootTemplates/_merged.lsx'
+[xml]$roots = Get-Content -Raw -LiteralPath $rootsPath
+foreach ($uuid in @(
+    'def74bcd-48a7-55c2-99d6-9b72e66c2fe0',
+    '334a92c4-f2b6-5dd8-9eb5-6606b424253e',
+    '33bcf8bc-50ff-507b-aadf-53de85fb396d',
+    'aef31c6f-07a7-5b20-9007-e910ca009ea1'
+)) {
+    $root = $roots.SelectSingleNode("//node[@id='GameObjects'][attribute[@id='MapKey' and @value='$uuid']]")
+    if ($null -eq $root) { throw "Missing runtime-dyed root: $uuid" }
+    $color = $root.SelectSingleNode("attribute[@id='ColorPreset']")
+    if ($null -ne $color) { [void]$root.RemoveChild($color) }
+}
+$settings = New-Object System.Xml.XmlWriterSettings
+$settings.Encoding = $utf8
+$settings.Indent = $true
+$writer = [System.Xml.XmlWriter]::Create($rootsPath, $settings)
+try { $roots.PSBase.Save($writer) } finally { $writer.Dispose() }
+
 Write-Host "Applied 0.3.13 system cleanup for $Mode."
